@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32519.111
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpOption.Core", "SharpOption.Core\SharpOption.Core.csproj", "{8F65E047-9C95-41F2-A42E-1EE0DCD6ACAC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpOption.Core.Tests", "SharpOption.Core.Tests\SharpOption.Core.Tests.csproj", "{DF2800E4-5F79-4654-84B4-AA0940CE3CAE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dotfiles", "dotfiles", "{D5586C29-2619-47C5-BA95-55EBBD1D8F37}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8F65E047-9C95-41F2-A42E-1EE0DCD6ACAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F65E047-9C95-41F2-A42E-1EE0DCD6ACAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F65E047-9C95-41F2-A42E-1EE0DCD6ACAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F65E047-9C95-41F2-A42E-1EE0DCD6ACAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF2800E4-5F79-4654-84B4-AA0940CE3CAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF2800E4-5F79-4654-84B4-AA0940CE3CAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF2800E4-5F79-4654-84B4-AA0940CE3CAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF2800E4-5F79-4654-84B4-AA0940CE3CAE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DDE669C4-26AA-4B4D-B376-01CE6D45B92B}
+	EndGlobalSection
+EndGlobal
