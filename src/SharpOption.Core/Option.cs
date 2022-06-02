@@ -105,6 +105,23 @@ public static class Option
 		: new T?();
 
 	public static T? ToObj<T>(Option<T> option) => option.Value;
+
+
+	public static TResult Match<T, TResult>(Option<T> option, Func<T, TResult> some, Func<TResult> none) => option.IsSome
+		? some(option.Value)
+		: none();
+
+	public static void Match<T>(Option<T> option, Action<T> some, Action none)
+	{
+		if (option.IsSome)
+		{
+			some(option.Value);
+		}
+		else
+		{
+			none();
+		}
+	}
 }
 
 public readonly record struct Option<T> : IStructuralEquatable, IStructuralComparable, IEquatable<T>, IEquatable<Option<T>>, IComparable, IComparable<Option<T>>
@@ -127,9 +144,6 @@ public readonly record struct Option<T> : IStructuralEquatable, IStructuralCompa
 		: this(value, hasValue: true)
 	{
 	}
-
-	public TResult Match<TResult>(Func<T, TResult> some, Func<TResult> none) => IsSome ? some(Value) : none();
-	public void Match<TResult>(Action<T> some, Action none) { if (IsSome) some(Value); else none(); }
 
 	public bool Equals(T? other) => EqualityComparer<T>.Default.Equals(Value, other);
 	public bool Equals(object? other, IEqualityComparer comparer) => comparer.Equals(Value, other);

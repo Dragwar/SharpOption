@@ -31,4 +31,7 @@ public static class OptionExtensions
 	public static List<T> ToList<T>(this Option<T> option) => Option.ToList(option);
 	public static T? ToNullable<T>(this Option<T> option) where T : struct => Option.ToNullable(option);
 	public static T? ToObj<T>(this Option<T> option) => Option.ToObj(option);
+
+	public static TResult Match<T, TResult>(this Option<T> option, Func<T, TResult> some, Func<TResult> none) => Option.Match(option, some, none);
+	public static void Match<T>(this Option<T> option, Action<T> some, Action none) => Option.Match(option, some, none);
 }
