@@ -85,6 +85,7 @@ public class SimpleOptionComparisonTests
 	{
 		var a = new MyClass() { Id = 1, Name = "test1" };
 		var b = new MyClass() { Id = 2, Name = "test2" };
+		var c = new MyClass() { Id = 1, Name = "test1" };
 
 		var op1 = Some(a);
 		var op2 = Some(a);
@@ -95,6 +96,11 @@ public class SimpleOptionComparisonTests
 		var op4 = Some(b);
 
 		Assert.False(op3 == op4);
+
+		var op5 = Some(a);
+		var op6 = Some(c);
+
+		Assert.False(op5 == op6);
 	}
 
 	[Fact]
@@ -102,6 +108,7 @@ public class SimpleOptionComparisonTests
 	{
 		var a = new MyClassRecord() { Id = 1, Name = "test1" };
 		var b = new MyClassRecord() { Id = 2, Name = "test2" };
+		var c = new MyClassRecord() { Id = 1, Name = "test1" };
 
 		var op1 = Some(a);
 		var op2 = Some(a);
@@ -112,6 +119,11 @@ public class SimpleOptionComparisonTests
 		var op4 = Some(b);
 
 		Assert.False(op3 == op4);
+
+		var op5 = Some(a);
+		var op6 = Some(c);
+
+		Assert.True(op5 == op6);
 	}
 
 	[Fact]
@@ -119,6 +131,7 @@ public class SimpleOptionComparisonTests
 	{
 		var a = new MyStruct() { Id = 1, Name = "test1" };
 		var b = new MyStruct() { Id = 2, Name = "test2" };
+		var c = new MyStruct() { Id = 1, Name = "test1" };
 
 		var op1 = Some(a);
 		var op2 = Some(a);
@@ -129,6 +142,11 @@ public class SimpleOptionComparisonTests
 		var op4 = Some(b);
 
 		Assert.False(op3 == op4);
+
+		var op5 = Some(a);
+		var op6 = Some(c);
+
+		Assert.True(op5 == op6);
 	}
 
 	[Fact]
@@ -136,6 +154,7 @@ public class SimpleOptionComparisonTests
 	{
 		var a = new MyStructRecord() { Id = 1, Name = "test1" };
 		var b = new MyStructRecord() { Id = 2, Name = "test2" };
+		var c = new MyStructRecord() { Id = 1, Name = "test1" };
 
 		var op1 = Some(a);
 		var op2 = Some(a);
@@ -146,30 +165,34 @@ public class SimpleOptionComparisonTests
 		var op4 = Some(b);
 
 		Assert.False(op3 == op4);
+
+		var op5 = Some(a);
+		var op6 = Some(c);
+
+		Assert.True(op5 == op6);
+	}
+
+	private class MyClass
+	{
+		public int Id { get; set; }
+		public string? Name { get; set; }
+	}
+
+	private record MyClassRecord
+	{
+		public int Id { get; set; }
+		public string? Name { get; set; }
+	}
+
+	private record struct MyStruct
+	{
+		public int Id { get; set; }
+		public string? Name { get; set; }
+	}
+
+	private record struct MyStructRecord
+	{
+		public int Id { get; set; }
+		public string? Name { get; set; }
 	}
 }
-
-internal class MyClass
-{
-	public int Id { get; set; }
-	public string? Name { get; set; }
-}
-
-internal record MyClassRecord
-{
-	public int Id { get; set; }
-	public string? Name { get; set; }
-}
-
-internal record struct MyStruct
-{
-	public int Id { get; set; }
-	public string? Name { get; set; }
-}
-
-internal record struct MyStructRecord
-{
-	public int Id { get; set; }
-	public string? Name { get; set; }
-}
-

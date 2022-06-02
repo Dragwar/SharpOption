@@ -3,6 +3,7 @@
 namespace SharpOption.Core;
 
 // see - https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-optionmodule.html
+// see - https://github.com/dotnet/fsharp/blob/main/src/FSharp.Core/option.fsi
 public static class Option
 {
 	public static Option<T> Some<T>(T value) => new(value);
@@ -126,6 +127,9 @@ public readonly record struct Option<T> : IStructuralEquatable, IStructuralCompa
 		: this(value, hasValue: true)
 	{
 	}
+
+	public TResult Match<TResult>(Func<T, TResult> some, Func<TResult> none) => IsSome ? some(Value) : none();
+	public void Match<TResult>(Action<T> some, Action none) { if (IsSome) some(Value); else none(); }
 
 	public bool Equals(T? other) => EqualityComparer<T>.Default.Equals(Value, other);
 	public bool Equals(object? other, IEqualityComparer comparer) => comparer.Equals(Value, other);
