@@ -64,17 +64,17 @@ public static class Option
 		}
 	}
 
-	public static Option<TOther> Map<T, TOther>(Option<T> option, Func<T, TOther> mapping) => option.IsSome
+	public static Option<TOut> Map<T, TOut>(Option<T> option, Func<T, TOut> mapping) => option.IsSome
 		? Some(mapping(option.Value))
-		: None<TOther>();
+		: None<TOut>();
 
-	public static Option<TOther> Map<T1, T2, TOther>(Option<T1> option1, Option<T2> option2, Func<T1, T2, TOther> mapping) => option1.IsSome && option2.IsSome
+	public static Option<TOut> Map<T1, T2, TOut>(Option<T1> option1, Option<T2> option2, Func<T1, T2, TOut> mapping) => option1.IsSome && option2.IsSome
 		? Some(mapping(option1.Value, option2.Value))
-		: None<TOther>();
+		: None<TOut>();
 
-	public static Option<TOther> Map<T1, T2, T3, TOther>(Option<T1> option1, Option<T2> option2, Option<T3> option3, Func<T1, T2, T3, TOther> mapping) => option1.IsSome && option2.IsSome && option3.IsSome
+	public static Option<TOut> Map<T1, T2, T3, TOut>(Option<T1> option1, Option<T2> option2, Option<T3> option3, Func<T1, T2, T3, TOut> mapping) => option1.IsSome && option2.IsSome && option3.IsSome
 		? Some(mapping(option1.Value, option2.Value, option3.Value))
-		: None<TOther>();
+		: None<TOut>();
 
 	public static Option<T> OfNullable<T>(T? value) where T : struct => value.HasValue
 		? Some(value.Value)
@@ -107,7 +107,7 @@ public static class Option
 	public static T? ToObj<T>(Option<T> option) => option.Value;
 
 
-	public static TResult Match<T, TResult>(Option<T> option, Func<T, TResult> some, Func<TResult> none) => option.IsSome
+	public static TOut Match<T, TOut>(Option<T> option, Func<T, TOut> some, Func<TOut> none) => option.IsSome
 		? some(option.Value)
 		: none();
 
