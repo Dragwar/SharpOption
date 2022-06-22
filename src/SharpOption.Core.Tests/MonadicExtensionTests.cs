@@ -21,6 +21,21 @@ public class MonadicExtensionTests
 	}
 
 	[Fact]
+	public void Select_Operator_Return_Another_Option()
+	{
+		// Arrange
+		var op1 = Some(1);
+
+		// Act
+		var op =
+			from first in op1
+			select Some(first + 2);
+
+		// Assert
+		Assert.Equal(3, op.Value);
+	}
+
+	[Fact]
 	public void Select_Into_Operator()
 	{
 		// Arrange
@@ -86,21 +101,6 @@ public class MonadicExtensionTests
 
 		// Assert
 		Assert.True(op.IsNone);
-	}
-
-	[Fact]
-	public void SelectMany_Operator_One_Levels()
-	{
-		// Arrange
-		var op1 = Some(1);
-
-		// Act
-		var op =
-			from first in op1
-			select Some(first + 2);
-
-		// Assert
-		Assert.Equal(3, op.Value);
 	}
 
 	[Fact]
