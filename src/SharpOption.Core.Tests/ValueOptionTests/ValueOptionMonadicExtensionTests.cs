@@ -1,8 +1,8 @@
-﻿using SharpOption.Core.Monodic;
-using static SharpOption.Core.Option;
+﻿using SharpOption.Core.ValueOption.Monodic;
+using static SharpOption.Core.ValueOption.ValueOption;
 
 namespace SharpOption.Core.Tests;
-public class MonadicExtensionTests
+public class ValueOptionMonadicExtensionTests
 {
 	[Fact]
 	public void Select_Operator()

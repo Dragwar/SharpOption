@@ -124,15 +124,15 @@ public static class Option
 	}
 }
 
-public readonly record struct Option<T> : IStructuralEquatable, IStructuralComparable, IEquatable<T>, IEquatable<Option<T>>, IComparable, IComparable<Option<T>>
+public record Option<T> : IStructuralEquatable, IStructuralComparable, IEquatable<T>, IEquatable<Option<T>>, IComparable, IComparable<Option<T>>
 {
-	internal static Option<T> None { get; } = default;
+	internal static Option<T> None { get; } = new(default, false);
 
-	public readonly T Value { get; }
-	private readonly bool HasValue { get; }
+	public T Value { get; }
+	private bool HasValue { get; }
 
-	public readonly bool IsSome => HasValue;
-	public readonly bool IsNone => !HasValue;
+	public bool IsSome => HasValue;
+	public bool IsNone => !HasValue;
 
 	private Option(T? value, bool hasValue)
 	{
@@ -150,7 +150,7 @@ public readonly record struct Option<T> : IStructuralEquatable, IStructuralCompa
 	public int GetHashCode(IEqualityComparer comparer) => comparer.GetHashCode(Value!);
 	public int CompareTo(object? other, IComparer comparer) => comparer.Compare(Value, other);
 	public int CompareTo(object? obj) => CompareTo(obj, Comparer<T>.Default);
-	public int CompareTo(Option<T> other) => CompareTo(other.Value, Comparer<T>.Default);
+	public int CompareTo(Option<T>? other) => CompareTo(other is null ? default : other.Value, Comparer<T>.Default);
 
 
 	public static bool operator <(Option<T> left, Option<T> right) => left.CompareTo(right) < 0;

@@ -2,7 +2,7 @@
 using static SharpOption.Core.Option;
 
 namespace SharpOption.Core.Monodic;
-public static class MonadicExtensions
+public static class OptionMonadicExtensions
 {
 	public static Option<T> Where<T>(this Option<T> option, Func<T, bool> predicate) => option.Filter(predicate);
 	public static Option<T> Where<T>(this T option, Func<T, bool> predicate) where T : notnull => option.Some().Filter(predicate);
