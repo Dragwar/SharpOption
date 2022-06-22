@@ -6,4 +6,16 @@
 		<Nullable>enable</Nullable>
 	</PropertyGroup>
 
+	<PropertyGroup>
+		<PackageId>$(AssemblyName)</PackageId>
+		<Version>0.0.1</Version>
+		<Authors>Dragwar</Authors>
+		<Title>$(AssemblyName)</Title>
+		<Description>Provides a C# implementation of the Option type (similar to F#'s Option type).</Description>
+		<RepositoryUrl>https://github.com/Dragwar/SharpOption</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/Dragwar/SharpOption</PackageProjectUrl>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageTags>option-type option value-option csharp-option optional-type optional maybe-type maybe</PackageTags>
+	</PropertyGroup>
+
 </Project>
