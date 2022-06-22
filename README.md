@@ -1,4 +1,4 @@
-![Nuget](https://img.shields.io/nuget/v/SharpOption.Core?style=for-the-badge)
+[![Nuget (with prereleases)](https://img.shields.io/nuget/vpre/SharpOption.Core?style=for-the-badge)](https://www.nuget.org/packages/SharpOption.Core/)
 
 # SharpOption
 C# representation of a optional value, heavily inspired by F#'s option module and type.
