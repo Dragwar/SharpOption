@@ -6,18 +6,18 @@ public static class OptionMonadicExtensions
 {
 	public static Option<T> Where<T>(this Option<T> option, Func<T, bool> predicate) => option.Filter(predicate);
 	public static Option<T> Where<T>(this T option, Func<T, bool> predicate) where T : notnull => option.Some().Filter(predicate);
-	public static Option<TOut> Select<T, TOut>(this Option<T> option, Func<T, Option<TOut>> selector) => option.Bind(selector);
-	public static Option<TOut> Select<T, TOut>(this T option, Func<T, Option<TOut>> selector) where T : notnull => option is not null ? option.Some().Bind(selector) : None<TOut>();
+	public static Option<U> Select<T, U>(this Option<T> option, Func<T, Option<U>> selector) => option.Bind(selector);
+	public static Option<U> Select<T, U>(this T option, Func<T, Option<U>> selector) where T : notnull => option is not null ? option.Some().Bind(selector) : None<U>();
 
-	public static Option<TOut> SelectMany<TFirst, TSecond, TOut>(
-		this Option<TFirst> first,
-		Func<TFirst, Option<TSecond>> getSecond,
-		Func<TFirst, TSecond, TOut> selector) => first.Bind(f => first.Map(getSecond(f), selector));
+	public static Option<U> SelectMany<T1, T2, U>(
+		this Option<T1> first,
+		Func<T1, Option<T2>> getSecond,
+		Func<T1, T2, U> selector) => first.Bind(f => first.Map(getSecond(f), selector));
 
-	public static async Task<Option<TOut>> SelectMany<TFirst, TSecond, TOut>(
-		this Task<Option<TFirst>> first,
-		Func<TFirst, Task<Option<TSecond>>> getSecond,
-		Func<TFirst, TSecond, TOut> selector)
+	public static async Task<Option<U>> SelectMany<T1, T2, U>(
+		this Task<Option<T1>> first,
+		Func<T1, Task<Option<T2>>> getSecond,
+		Func<T1, T2, U> selector)
 	{
 		var firstOption = await first;
 		var res = await firstOption.Match(
@@ -27,7 +27,7 @@ public static class OptionMonadicExtensions
 				var r = secondOption.Bind(s => Some(selector(f, s)));
 				return r;
 			},
-			() => Task.FromResult(None<TOut>())
+			() => Task.FromResult(None<U>())
 		);
 		return res;
 	}
