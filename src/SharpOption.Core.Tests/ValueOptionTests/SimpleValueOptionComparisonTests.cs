@@ -184,7 +184,7 @@ public class SimpleValueOptionComparisonTests
 		public string? Name { get; set; }
 	}
 
-	private record struct MyStruct
+	private struct MyStruct
 	{
 		public int Id { get; set; }
 		public string? Name { get; set; }
