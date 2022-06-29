@@ -1,8 +1,6 @@
-using static SharpOption.Core.ValueOption.ValueOption;
+namespace SharpOption.Core.Tests;
 
-namespace SharpOption.Core.Tests.ValueOptionTests;
-
-public class SimpleValueOptionComparisonTests
+public class SimpleOptionComparisonTests
 {
 	[Theory]
 	[InlineData(new object[] { 1, 1 })]
@@ -18,8 +16,8 @@ public class SimpleValueOptionComparisonTests
 		var expectedToBeEqual = op1Value == op2Value;
 
 		// Act
-		var op1 = op1Value.HasValue ? Some(op1Value.Value) : None<int>();
-		var op2 = op2Value.HasValue ? Some(op2Value.Value) : None<int>();
+		var op1 = op1Value.HasValue ? op1Value.Value.Some() : None<int>();
+		var op2 = op2Value.HasValue ? op2Value.Value.Some() : None<int>();
 
 		// Assert
 		if (expectedToBeEqual)
@@ -54,8 +52,8 @@ public class SimpleValueOptionComparisonTests
 	public void Option_To_Option_Comparison(int? op1Value, string op, int? op2Value, bool expected)
 	{
 		// Arrange
-		var op1 = op1Value.HasValue ? Some(op1Value.Value) : None<int>();
-		var op2 = op2Value.HasValue ? Some(op2Value.Value) : None<int>();
+		var op1 = op1Value.HasValue ? op1Value.Value.Some() : None<int>();
+		var op2 = op2Value.HasValue ? op2Value.Value.Some() : None<int>();
 
 		// Act
 		var actual = op switch
@@ -87,18 +85,18 @@ public class SimpleValueOptionComparisonTests
 		var b = new MyClass() { Id = 2, Name = "test2" };
 		var c = new MyClass() { Id = 1, Name = "test1" };
 
-		var op1 = Some(a);
-		var op2 = Some(a);
+		var op1 = a.Some();
+		var op2 = a.Some();
 
 		Assert.True(op1 == op2);
 
-		var op3 = Some(a);
-		var op4 = Some(b);
+		var op3 = a.Some();
+		var op4 = b.Some();
 
 		Assert.False(op3 == op4);
 
-		var op5 = Some(a);
-		var op6 = Some(c);
+		var op5 = a.Some();
+		var op6 = c.Some();
 
 		Assert.False(op5 == op6);
 	}
@@ -110,18 +108,18 @@ public class SimpleValueOptionComparisonTests
 		var b = new MyClassRecord() { Id = 2, Name = "test2" };
 		var c = new MyClassRecord() { Id = 1, Name = "test1" };
 
-		var op1 = Some(a);
-		var op2 = Some(a);
+		var op1 = a.Some();
+		var op2 = a.Some();
 
 		Assert.True(op1 == op2);
 
-		var op3 = Some(a);
-		var op4 = Some(b);
+		var op3 = a.Some();
+		var op4 = b.Some();
 
 		Assert.False(op3 == op4);
 
-		var op5 = Some(a);
-		var op6 = Some(c);
+		var op5 = a.Some();
+		var op6 = c.Some();
 
 		Assert.True(op5 == op6);
 	}
@@ -133,18 +131,18 @@ public class SimpleValueOptionComparisonTests
 		var b = new MyStruct() { Id = 2, Name = "test2" };
 		var c = new MyStruct() { Id = 1, Name = "test1" };
 
-		var op1 = Some(a);
-		var op2 = Some(a);
+		var op1 = a.Some();
+		var op2 = a.Some();
 
 		Assert.True(op1 == op2);
 
-		var op3 = Some(a);
-		var op4 = Some(b);
+		var op3 = a.Some();
+		var op4 = b.Some();
 
 		Assert.False(op3 == op4);
 
-		var op5 = Some(a);
-		var op6 = Some(c);
+		var op5 = a.Some();
+		var op6 = c.Some();
 
 		Assert.True(op5 == op6);
 	}
@@ -156,18 +154,18 @@ public class SimpleValueOptionComparisonTests
 		var b = new MyStructRecord() { Id = 2, Name = "test2" };
 		var c = new MyStructRecord() { Id = 1, Name = "test1" };
 
-		var op1 = Some(a);
-		var op2 = Some(a);
+		var op1 = a.Some();
+		var op2 = a.Some();
 
 		Assert.True(op1 == op2);
 
-		var op3 = Some(a);
-		var op4 = Some(b);
+		var op3 = a.Some();
+		var op4 = b.Some();
 
 		Assert.False(op3 == op4);
 
-		var op5 = Some(a);
-		var op6 = Some(c);
+		var op5 = a.Some();
+		var op6 = c.Some();
 
 		Assert.True(op5 == op6);
 	}

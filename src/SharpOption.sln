@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dotfiles", "dotfiles", "{D5
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpOption.Core.ValueOption.Tests", "SharpOption.Core.ValueOption.Tests\SharpOption.Core.ValueOption.Tests.csproj", "{C43C129F-58AE-40B3-A5BB-FAB84E8E5CBB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +28,10 @@ Global
 		{DF2800E4-5F79-4654-84B4-AA0940CE3CAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF2800E4-5F79-4654-84B4-AA0940CE3CAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF2800E4-5F79-4654-84B4-AA0940CE3CAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C43C129F-58AE-40B3-A5BB-FAB84E8E5CBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C43C129F-58AE-40B3-A5BB-FAB84E8E5CBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C43C129F-58AE-40B3-A5BB-FAB84E8E5CBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C43C129F-58AE-40B3-A5BB-FAB84E8E5CBB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

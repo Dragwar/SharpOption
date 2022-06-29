@@ -1,14 +1,12 @@
-﻿using SharpOption.Core.ValueOption.Monodic;
-using static SharpOption.Core.ValueOption.ValueOption;
+﻿namespace SharpOption.Core.Tests;
 
-namespace SharpOption.Core.Tests.ValueOptionTests;
-public class ValueOptionMonadicExtensionTests
+public class OptionMonadicExtensionTests
 {
 	[Fact]
 	public void Select_Operator()
 	{
 		// Arrange
-		var op1 = Some(5);
+		var op1 = 5.Some();
 
 		// Act
 		var op =
@@ -24,12 +22,12 @@ public class ValueOptionMonadicExtensionTests
 	public void Select_Operator_Return_Another_Option()
 	{
 		// Arrange
-		var op1 = Some(1);
+		var op1 = 1.Some();
 
 		// Act
 		var op =
 			from first in op1
-			select Some(first + 2);
+			select (first + 2).Some();
 
 		// Assert
 		Assert.Equal(3, op.Value);
@@ -39,8 +37,8 @@ public class ValueOptionMonadicExtensionTests
 	public void Select_Into_Operator()
 	{
 		// Arrange
-		var op1 = Some(5);
-		var op2 = Some(1);
+		var op1 = 5.Some();
+		var op2 = 1.Some();
 
 		// Act
 		var op =
@@ -58,7 +56,7 @@ public class ValueOptionMonadicExtensionTests
 	public void Where_Operator_True_Condition()
 	{
 		// Arrange
-		var op1 = Some(5);
+		var op1 = 5.Some();
 
 		// Act
 		var op =
@@ -75,7 +73,7 @@ public class ValueOptionMonadicExtensionTests
 	public void Where_Operator_False_Condition()
 	{
 		// Arrange
-		var op1 = Some(1);
+		var op1 = 1.Some();
 
 		// Act
 		var op =
@@ -107,8 +105,8 @@ public class ValueOptionMonadicExtensionTests
 	public void SelectMany_Operator_Two_Levels()
 	{
 		// Arrange
-		var op1 = Some(1);
-		var op2 = Some(2);
+		var op1 = 1.Some();
+		var op2 = 2.Some();
 
 		// Act
 		var op =
@@ -124,9 +122,9 @@ public class ValueOptionMonadicExtensionTests
 	public void SelectMany_Into_Operator()
 	{
 		// Arrange
-		var op1 = Some(5);
-		var op2 = Some(1);
-		var op3 = Some(2);
+		var op1 = 5.Some();
+		var op2 = 1.Some();
+		var op3 = 2.Some();
 
 		// Act
 		var op =
