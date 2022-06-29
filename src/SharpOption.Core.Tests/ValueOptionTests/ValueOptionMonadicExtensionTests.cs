@@ -1,7 +1,7 @@
 ﻿using SharpOption.Core.ValueOption.Monodic;
 using static SharpOption.Core.ValueOption.ValueOption;
 
-namespace SharpOption.Core.Tests;
+namespace SharpOption.Core.Tests.ValueOptionTests;
 public class ValueOptionMonadicExtensionTests
 {
 	[Fact]
