@@ -3,7 +3,7 @@
 public class OptionInstanceTests
 {
 	[Fact]
-	public void Some_And_IsSome_True_And_IsNone_False()
+	public void Some_And_IsSome_ShouldBe_True_And_IsNone_ShouldBe_False()
 	{
 		// Arrange
 		var op = 10.Some();
@@ -15,7 +15,7 @@ public class OptionInstanceTests
 	}
 
 	[Fact]
-	public void None_And_IsSome_False_And_IsNone_True()
+	public void None_And_IsSome_ShouldBe_False_And_IsNone_ShouldBe_True()
 	{
 		// Arrange
 		var op = None<int>();
@@ -27,7 +27,7 @@ public class OptionInstanceTests
 	}
 
 	[Fact]
-	public void Some_And_Returns_Getter_Value()
+	public void Some_And_ShouldReturn_Getter_Value()
 	{
 		// Arrange
 		var op = 10.Some();
@@ -41,7 +41,7 @@ public class OptionInstanceTests
 	}
 
 	[Fact]
-	public void None_And_Getter_Value_Throws_InvalidOperationException()
+	public void None_And_Getter_Value_ShouldThrow_InvalidOperationException()
 	{
 		// Arrange
 		var op = None<int>();

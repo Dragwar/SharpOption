@@ -3,7 +3,7 @@
 public class OperatorTests
 {
 	[Fact]
-	public void Some_Get_Return_Value()
+	public void Some_Get_ShouldReturn_Value()
 	{
 		// Arrange
 		var op = 10.Some();
@@ -17,7 +17,7 @@ public class OperatorTests
 	}
 
 	[Fact]
-	public void None_Get_Throw_ArgumentException()
+	public void None_Get_ShouldThrow_ArgumentException()
 	{
 		// Arrange
 		var op = None<int>();
@@ -28,7 +28,7 @@ public class OperatorTests
 	}
 
 	[Fact]
-	public void Some_Bind_Return_Some()
+	public void Some_Bind_ShouldReturn_Some()
 	{
 		// Arrange
 		var op = 10.Some();
@@ -43,7 +43,7 @@ public class OperatorTests
 	}
 
 	[Fact]
-	public void Some_Bind_Return_None()
+	public void Some_Bind_ShouldReturn_None()
 	{
 		// Arrange
 		var op = 10.Some();
@@ -58,7 +58,7 @@ public class OperatorTests
 	}
 
 	[Fact]
-	public void Some_Map_Return_Some()
+	public void Some_Map_ShouldReturn_Some()
 	{
 		// Arrange
 		var op = 10.Some();
@@ -73,7 +73,7 @@ public class OperatorTests
 	}
 
 	[Fact]
-	public void None_Map_Return_None()
+	public void None_Map_ShouldReturn_None()
 	{
 		// Arrange
 		var op = None<int>();
