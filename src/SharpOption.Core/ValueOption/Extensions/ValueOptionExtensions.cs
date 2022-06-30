@@ -85,7 +85,7 @@ public static class ValueOptionExtensions
 	public static T? ToNullable<T>(this ValueOption<T> option) where T : struct => ValueOption.ToNullable(option);
 
 	/// <inheritdoc cref="ValueOption.ToObj{T}(ValueOption{T})" />
-	public static T? ToObj<T>(this ValueOption<T> option) => ValueOption.ToObj(option);
+	public static T? ToObj<T>(this ValueOption<T> option) where T : class => ValueOption.ToObj(option);
 
 	/// <inheritdoc cref="ValueOption.Match{T, U}(ValueOption{T}, Func{T, U}, Func{U})" />
 	public static U Match<T, U>(this ValueOption<T> option, Func<T, U> some, Func<U> none) => ValueOption.Match(option, some, none);

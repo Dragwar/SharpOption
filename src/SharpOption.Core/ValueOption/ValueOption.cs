@@ -347,7 +347,7 @@ public static class ValueOption
 	/// <returns>
 	/// The result value, which is <see langword="null"/> if the <paramref name="option"/> was None.
 	/// </returns>
-	public static T? ToObj<T>(ValueOption<T> option) => option.Value;
+	public static T? ToObj<T>(ValueOption<T> option) where T : class => option.IsSome ? option.Value : default;
 
 	/// <summary>
 	/// Execute and return the result of either <paramref name="some"/> or <paramref name="none"/>
