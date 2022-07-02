@@ -70,10 +70,10 @@ public static class ValueOptionExtensions
 	public static ValueOption<T> OfObj<T>(this T? value) where T : class => ValueOption.OfObj(value);
 
 	/// <inheritdoc cref="ValueOption.OrElse{T}(ValueOption{T}, ValueOption{T})" />
-	public static ValueOption<T> OrElse<T>(this ValueOption<T> option, ValueOption<T> ifNone) where T : class => ValueOption.OrElse(option, ifNone);
+	public static ValueOption<T> OrElse<T>(this ValueOption<T> option, ValueOption<T> ifNone) => ValueOption.OrElse(option, ifNone);
 
 	/// <inheritdoc cref="ValueOption.OrElseWith{T}(ValueOption{T}, Func{ValueOption{T}})" />
-	public static ValueOption<T> OrElseWith<T>(this ValueOption<T> option, Func<ValueOption<T>> ifNoneThunk) where T : class => ValueOption.OrElseWith(option, ifNoneThunk);
+	public static ValueOption<T> OrElseWith<T>(this ValueOption<T> option, Func<ValueOption<T>> ifNoneThunk) => ValueOption.OrElseWith(option, ifNoneThunk);
 
 	/// <inheritdoc cref="ValueOption.ToArray{T}(ValueOption{T})" />
 	public static T[] ToArray<T>(this ValueOption<T> option) => ValueOption.ToArray(option);

@@ -70,10 +70,10 @@ public static class OptionExtensions
 	public static Option<T> OfObj<T>(this T? value) where T : class => Option.OfObj(value);
 
 	/// <inheritdoc cref="Option.OrElse{T}(Option{T}, Option{T})" />
-	public static Option<T> OrElse<T>(this Option<T> option, Option<T> ifNone) where T : class => Option.OrElse(option, ifNone);
+	public static Option<T> OrElse<T>(this Option<T> option, Option<T> ifNone) => Option.OrElse(option, ifNone);
 
 	/// <inheritdoc cref="Option.OrElseWith{T}(Option{T}, Func{Option{T}})" />
-	public static Option<T> OrElseWith<T>(this Option<T> option, Func<Option<T>> ifNoneThunk) where T : class => Option.OrElseWith(option, ifNoneThunk);
+	public static Option<T> OrElseWith<T>(this Option<T> option, Func<Option<T>> ifNoneThunk) => Option.OrElseWith(option, ifNoneThunk);
 
 	/// <inheritdoc cref="Option.ToArray{T}(Option{T})" />
 	public static T[] ToArray<T>(this Option<T> option) => Option.ToArray(option);

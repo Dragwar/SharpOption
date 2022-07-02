@@ -293,7 +293,7 @@ public static class Option
 	/// The <paramref name="option"/> if the <paramref name="option"/> is Some,
 	/// else the alternate <paramref name="option"/>.
 	/// </returns>
-	public static Option<T> OrElse<T>(Option<T> option, Option<T> ifNone) where T : class => option.IsNone
+	public static Option<T> OrElse<T>(Option<T> option, Option<T> ifNone) => option.IsNone
 		? ifNone
 		: option;
 
@@ -305,7 +305,7 @@ public static class Option
 	/// <param name="option">The input option.</param>
 	/// <returns>The option if the option is Some, else the result of evaluating <paramref name="ifNoneThunk"/>.</returns>
 	/// <remarks><paramref name="ifNoneThunk"/> is not evaluated unless <paramref name="option"/> is <c>None</c>.</remarks>
-	public static Option<T> OrElseWith<T>(Option<T> option, Func<Option<T>> ifNoneThunk) where T : class => option.IsNone
+	public static Option<T> OrElseWith<T>(Option<T> option, Func<Option<T>> ifNoneThunk) => option.IsNone
 		? ifNoneThunk()
 		: option;
 
