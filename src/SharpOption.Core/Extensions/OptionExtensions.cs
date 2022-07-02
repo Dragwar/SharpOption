@@ -67,7 +67,7 @@ public static class OptionExtensions
 	public static Option<T> OfNullable<T>(this T? value) where T : struct => Option.OfNullable(value);
 
 	/// <inheritdoc cref="Option.OfObj{T}(T)" />
-	public static Option<T> OfObj<T>(this T value) where T : class => Option.OfObj(value);
+	public static Option<T> OfObj<T>(this T? value) where T : class => Option.OfObj(value);
 
 	/// <inheritdoc cref="Option.OrElse{T}(Option{T}, Option{T})" />
 	public static Option<T> OrElse<T>(this Option<T> option, Option<T> ifNone) where T : class => Option.OrElse(option, ifNone);

@@ -279,7 +279,7 @@ public static class ValueOption
 	/// <typeparam name="T"><paramref name="value"/>'s generic type.</typeparam>
 	/// <param name="value">The input value.</param>
 	/// <returns>The result option.</returns>
-	public static ValueOption<T> OfObj<T>(T value) where T : class => value is not null
+	public static ValueOption<T> OfObj<T>(T? value) where T : class => value is not null
 		? Some(value)
 		: None<T>();
 

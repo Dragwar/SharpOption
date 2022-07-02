@@ -67,7 +67,7 @@ public static class ValueOptionExtensions
 	public static ValueOption<T> OfNullable<T>(this T? value) where T : struct => ValueOption.OfNullable(value);
 
 	/// <inheritdoc cref="ValueOption.OfObj{T}(T)" />
-	public static ValueOption<T> OfObj<T>(this T value) where T : class => ValueOption.OfObj(value);
+	public static ValueOption<T> OfObj<T>(this T? value) where T : class => ValueOption.OfObj(value);
 
 	/// <inheritdoc cref="ValueOption.OrElse{T}(ValueOption{T}, ValueOption{T})" />
 	public static ValueOption<T> OrElse<T>(this ValueOption<T> option, ValueOption<T> ifNone) where T : class => ValueOption.OrElse(option, ifNone);
