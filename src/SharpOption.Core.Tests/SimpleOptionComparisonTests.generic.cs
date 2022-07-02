@@ -1,5 +1,6 @@
 namespace SharpOption.Core.Tests;
 
+[Trait(CATEGORY, EQUALITY)]
 public class SimpleOptionComparisonTests
 {
 	[Theory]

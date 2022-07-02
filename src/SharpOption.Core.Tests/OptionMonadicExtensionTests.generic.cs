@@ -1,5 +1,6 @@
 ﻿namespace SharpOption.Core.Tests;
 
+[Trait(CATEGORY, nameof(Monodic))]
 public class OptionMonadicExtensionTests
 {
 	[Fact]

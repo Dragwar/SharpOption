@@ -30,7 +30,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Compile Include="..\SharpOption.Core.Tests\*.generic.cs" CopyToOutputDirectory="Always" />
+		<Compile Include="..\SharpOption.Core.Tests\**\*.generic.cs" CopyToOutputDirectory="Always" />
 	</ItemGroup>
 
 </Project>

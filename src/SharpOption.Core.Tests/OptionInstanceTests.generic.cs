@@ -1,5 +1,6 @@
 ﻿namespace SharpOption.Core.Tests;
 
+[Trait(CATEGORY, INSTANCE)]
 public class OptionInstanceTests
 {
 	[Fact]
@@ -50,6 +51,4 @@ public class OptionInstanceTests
 		// Assert
 		Assert.Throws<InvalidOperationException>(() => op.Value);
 	}
-
-	//TODO: move equality/comparison tests here
 }
