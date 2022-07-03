@@ -1,7 +1,7 @@
 namespace SharpOption.Core.Tests;
 
 [Trait(CATEGORY, EQUALITY)]
-public class SimpleOptionComparisonTests
+public class SimpleOptionEqualityTests
 {
 	[Theory]
 	[InlineData(new object[] { 1, 1 })]
@@ -32,22 +32,10 @@ public class SimpleOptionComparisonTests
 	}
 
 	[Theory]
-	[InlineData(new object[] { 1, ">", 1, false })]
-	[InlineData(new object[] { 1, ">=", 1, true })]
-	[InlineData(new object[] { 1, "<", 1, false })]
-	[InlineData(new object[] { 1, "<=", 1, true })]
 	[InlineData(new object[] { 1, "==", 1, true })]
 	[InlineData(new object[] { 1, "!=", 1, false })]
-	[InlineData(new object[] { null!, ">", 1, false })]
-	[InlineData(new object[] { null!, ">=", 1, false })]
-	[InlineData(new object[] { null!, "<", 1, true })]
-	[InlineData(new object[] { null!, "<=", 1, true })]
 	[InlineData(new object[] { null!, "==", 1, false })]
 	[InlineData(new object[] { null!, "!=", 1, true })]
-	[InlineData(new object[] { 1, ">", null!, true })]
-	[InlineData(new object[] { 1, ">=", null!, true })]
-	[InlineData(new object[] { 1, "<", null!, false })]
-	[InlineData(new object[] { 1, "<=", null!, false })]
 	[InlineData(new object[] { 1, "==", null!, false })]
 	[InlineData(new object[] { 1, "!=", null!, true })]
 	public void Option_To_Option_Comparison(int? op1Value, string op, int? op2Value, bool expected)
@@ -59,10 +47,6 @@ public class SimpleOptionComparisonTests
 		// Act
 		var actual = op switch
 		{
-			">" => op1 > op2,
-			">=" => op1 >= op2,
-			"<" => op1 < op2,
-			"<=" => op1 <= op2,
 			"==" => op1 == op2,
 			"!=" => op1 != op2,
 			_ => throw new Exception("Invalid op in test data."),
