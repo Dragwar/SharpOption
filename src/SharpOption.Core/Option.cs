@@ -422,7 +422,7 @@ public static class Option
 /// Use the constructor functions <b><c>Option.Some&#60;T&#62;(...)</c></b> and <b><c>Option.None&#60;T&#62;()</c></b> to create values of this type.
 /// Use the functions in the <see langword="static"/> <see langword="class"/> <c>Option</c> to manipulate values of this type.
 /// </remarks>
-public record Option<T> : IStructuralEquatable, IStructuralComparable, IEquatable<T>, IEquatable<Option<T>>, IComparable, IComparable<Option<T>>
+public record Option<T>
 {
 	internal static Option<T> None { get; } = new(default, false);
 
@@ -455,19 +455,4 @@ public record Option<T> : IStructuralEquatable, IStructuralComparable, IEquatabl
 		: this(value, hasValue: true)
 	{
 	}
-
-
-	public bool Equals(T? other) => EqualityComparer<T>.Default.Equals(_value, other);
-	public bool Equals(object? other, IEqualityComparer comparer) => comparer.Equals(_value, other);
-	public int GetHashCode(IEqualityComparer comparer) => comparer.GetHashCode(_value!);
-	public override int GetHashCode() => GetHashCode(EqualityComparer<T>.Default);
-	public int CompareTo(object? other, IComparer comparer) => comparer.Compare(_value, other);
-	public int CompareTo(object? obj) => CompareTo(obj, Comparer<T>.Default);
-	public int CompareTo(Option<T>? other) => CompareTo(other is null ? default : other._value, Comparer<T>.Default);
-
-
-	public static bool operator <(Option<T> left, Option<T> right) => left.CompareTo(right) < 0;
-	public static bool operator <=(Option<T> left, Option<T> right) => left.CompareTo(right) <= 0;
-	public static bool operator >(Option<T> left, Option<T> right) => left.CompareTo(right) > 0;
-	public static bool operator >=(Option<T> left, Option<T> right) => left.CompareTo(right) >= 0;
 }
