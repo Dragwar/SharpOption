@@ -139,3 +139,5 @@ Option<int> op6 = await (
 - XML documentation for all public APIs.
 - Add more linq query operator/keyword support.
 - Review and fix all comparison/equality functionality for Option<T> and ValueOption<T>.
+- Json serialization support.
+- Maybe EntityFrameworkCore support.
