@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using SharpOption.Core.Delegates;
+using System.Collections;
 
 namespace SharpOption.Core.ValueOption;
 
@@ -380,6 +381,34 @@ public static class ValueOption
 			none();
 		}
 	}
+
+	/// <summary>
+	/// Converts a string representation of <typeparamref name="T"/> to using the passed in <paramref name="tryParser"/>.
+	/// </summary>
+	/// <typeparam name="T">The type to convert to.</typeparam>
+	/// <param name="s">A string containing a value to convert.</param>
+	/// <param name="tryParser">The try parse function (for example: <see cref="int.TryParse(string?, out int)"/>).</param>
+	/// <returns>
+	/// If <paramref name="tryParser"/> returns <see langword="true"/> then Some parsedValue from the out parameter of <paramref name="tryParser"/>.
+	/// Otherwise, <paramref name="tryParser"/> returns <see langword="false"/> then None.
+	/// </returns>
+	public static ValueOption<T> OfTryParse<T>(string? s, TryParse<T> tryParser) => tryParser(s, out var value)
+		? Some(value)
+		: None<T>();
+
+	/// <summary>
+	/// Converts a string representation of <typeparamref name="T"/> to using the passed in <paramref name="tryParser"/>.
+	/// </summary>
+	/// <typeparam name="T">The type to convert to.</typeparam>
+	/// <param name="s">A string containing a value to convert.</param>
+	/// <param name="tryParser">The try parse function (for example: <see cref="int.TryParse(ReadOnlySpan{char}, out int)"/>).</param>
+	/// <returns>
+	/// If <paramref name="tryParser"/> returns <see langword="true"/> then Some parsedValue from the out parameter of <paramref name="tryParser"/>.
+	/// Otherwise, <paramref name="tryParser"/> returns <see langword="false"/> then None.
+	/// </returns>
+	public static ValueOption<T> OfTryParse<T>(ReadOnlySpan<char> s, TryParseSpan<T> tryParser) => tryParser(s, out var value)
+		? Some(value)
+		: None<T>();
 }
 
 /// <summary>

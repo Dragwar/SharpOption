@@ -1,4 +1,6 @@
-﻿namespace SharpOption.Core.Extensions;
+﻿using SharpOption.Core.Delegates;
+
+namespace SharpOption.Core.Extensions;
 
 /// <inheritdoc cref="Option" />
 public static class OptionExtensions
@@ -92,4 +94,11 @@ public static class OptionExtensions
 
 	/// <inheritdoc cref="Option.Match{T}(Option{T}, Action{T}, Action)" />
 	public static void Match<T>(this Option<T> option, Action<T> some, Action none) => Option.Match(option, some, none);
+
+	/// <inheritdoc cref="Option.OfTryParse{T}(string?, TryParse{T})" />
+	public static Option<T> OfTryParse<T>(this string? s, TryParse<T> tryParser) => Option.OfTryParse(s, tryParser);
+
+	/// <inheritdoc cref="Option.OfTryParse{T}(ReadOnlySpan{char}, TryParseSpan{T})" />
+	public static Option<T> OfTryParse<T>(this ReadOnlySpan<char> s, TryParseSpan<T> tryParser) => Option.OfTryParse(s, tryParser);
+
 }

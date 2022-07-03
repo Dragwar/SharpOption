@@ -1,4 +1,6 @@
-﻿namespace SharpOption.Core.ValueOption.Extensions;
+﻿using SharpOption.Core.Delegates;
+
+namespace SharpOption.Core.ValueOption.Extensions;
 
 /// <inheritdoc cref="ValueOption" />
 public static class ValueOptionExtensions
@@ -92,4 +94,10 @@ public static class ValueOptionExtensions
 
 	/// <inheritdoc cref="ValueOption.Match{T}(ValueOption{T}, Action{T}, Action)" />
 	public static void Match<T>(this ValueOption<T> option, Action<T> some, Action none) => ValueOption.Match(option, some, none);
+
+	/// <inheritdoc cref="ValueOption.OfTryParse{T}(string?, TryParse{T})" />
+	public static ValueOption<T> OfTryParse<T>(this string? s, TryParse<T> tryParser) => ValueOption.OfTryParse(s, tryParser);
+
+	/// <inheritdoc cref="ValueOption.OfTryParse{T}(ReadOnlySpan{char}, TryParseSpan{T})" />
+	public static ValueOption<T> OfTryParse<T>(this ReadOnlySpan<char> s, TryParseSpan<T> tryParser) => ValueOption.OfTryParse(s, tryParser);
 }

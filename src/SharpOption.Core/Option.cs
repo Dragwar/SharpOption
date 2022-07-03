@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using SharpOption.Core.Delegates;
+using System.Collections;
 
 namespace SharpOption.Core;
 
@@ -358,6 +359,10 @@ public static class Option
 	/// <param name="option">The input value.</param>
 	/// <param name="some">The function to execute when <paramref name="option"/> is <c>Some</c>.</param>
 	/// <param name="none">The function to execute when <paramref name="option"/> is <c>None</c>.</param>
+	/// <returns>
+	/// The <paramref name="some"/> return value if <paramref name="option"/> is Some otherwise,
+	/// the <paramref name="none"/> return value.
+	/// </returns>
 	public static U Match<T, U>(Option<T> option, Func<T, U> some, Func<U> none) => option.IsSome
 		? some(option.Value)
 		: none();
@@ -380,6 +385,34 @@ public static class Option
 			none();
 		}
 	}
+
+	/// <summary>
+	/// Converts a string representation of <typeparamref name="T"/> to using the passed in <paramref name="tryParser"/>.
+	/// </summary>
+	/// <typeparam name="T">The type to convert to.</typeparam>
+	/// <param name="s">A string containing a value to convert.</param>
+	/// <param name="tryParser">The try parse function (for example: <see cref="int.TryParse(string?, out int)"/>).</param>
+	/// <returns>
+	/// If <paramref name="tryParser"/> returns <see langword="true"/> then Some parsedValue from the out parameter of <paramref name="tryParser"/>.
+	/// Otherwise, <paramref name="tryParser"/> returns <see langword="false"/> then None.
+	/// </returns>
+	public static Option<T> OfTryParse<T>(string? s, TryParse<T> tryParser) => tryParser(s, out var value)
+		? Some(value)
+		: None<T>();
+
+	/// <summary>
+	/// Converts a string representation of <typeparamref name="T"/> to using the passed in <paramref name="tryParser"/>.
+	/// </summary>
+	/// <typeparam name="T">The type to convert to.</typeparam>
+	/// <param name="s">A string containing a value to convert.</param>
+	/// <param name="tryParser">The try parse function (for example: <see cref="int.TryParse(ReadOnlySpan{char}, out int)"/>).</param>
+	/// <returns>
+	/// If <paramref name="tryParser"/> returns <see langword="true"/> then Some parsedValue from the out parameter of <paramref name="tryParser"/>.
+	/// Otherwise, <paramref name="tryParser"/> returns <see langword="false"/> then None.
+	/// </returns>
+	public static Option<T> OfTryParse<T>(ReadOnlySpan<char> s, TryParseSpan<T> tryParser) => tryParser(s, out var value)
+		? Some(value)
+		: None<T>();
 }
 
 /// <summary>
