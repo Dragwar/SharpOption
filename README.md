@@ -138,5 +138,4 @@ Option<int> op6 = await (
 ## Todo
 - XML documentation for all public APIs.
 - Add more linq query operator/keyword support.
-- Add TryParse operators to translate TryParse results to Option<T> or ValueOption<T> (for example: int.TryParse(...)).
-- Review/Fix any comparison/equality functionality for Option<T> and ValueOption<T>.
+- Review and fix all comparison/equality functionality for Option<T> and ValueOption<T>.

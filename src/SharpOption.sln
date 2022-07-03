@@ -7,12 +7,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpOption.Core", "SharpOp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpOption.Core.Tests", "SharpOption.Core.Tests\SharpOption.Core.Tests.csproj", "{DF2800E4-5F79-4654-84B4-AA0940CE3CAE}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dotfiles", "dotfiles", "{D5586C29-2619-47C5-BA95-55EBBD1D8F37}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{D5586C29-2619-47C5-BA95-55EBBD1D8F37}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		..\.gitignore = ..\.gitignore
+		..\LICENSE = ..\LICENSE
+		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpOption.Core.ValueOption.Tests", "SharpOption.Core.ValueOption.Tests\SharpOption.Core.ValueOption.Tests.csproj", "{C43C129F-58AE-40B3-A5BB-FAB84E8E5CBB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpOption.Core.ValueOption.Tests", "SharpOption.Core.ValueOption.Tests\SharpOption.Core.ValueOption.Tests.csproj", "{C43C129F-58AE-40B3-A5BB-FAB84E8E5CBB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -8,10 +8,12 @@
 
 	<PropertyGroup>
 		<PackageId>$(AssemblyName)</PackageId>
-		<Version>0.0.1</Version>
+		<Version>0.0.2-preview</Version>
 		<Authors>Dragwar</Authors>
 		<Title>$(AssemblyName)</Title>
 		<Description>Provides a C# implementation of the Option type (similar to F#'s Option type).</Description>
+		<PackageReleaseNotes>Fixed a few operator bugs and added XML documentation to most of the exposed types/members.</PackageReleaseNotes>
+		<RepositoryType>git</RepositoryType>
 		<RepositoryUrl>https://github.com/Dragwar/SharpOption</RepositoryUrl>
 		<PackageProjectUrl>https://github.com/Dragwar/SharpOption</PackageProjectUrl>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
